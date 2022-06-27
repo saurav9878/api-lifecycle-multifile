@@ -1,0 +1,52 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Demo",
+    "version" : "1.0"
+  },
+  "servers" : [ {
+    "url" : "https://12vzozjx6a.execute-api.us-east-1.amazonaws.com/{basePath}",
+    "variables" : {
+      "basePath" : {
+        "default" : ""
+      }
+    }
+  } ],
+  "paths" : {
+    "/user" : {
+      "get" : {
+        "operationId" : "listUser",
+        "responses" : {
+          "default" : {
+            "description" : "Default response for GET /user"
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "$ref" : "#/components/x-amazon-apigateway-integrations/unusedIntegration_ofpmbml"
+        }
+      }
+    },
+    "/users" : {
+      "get" : {
+        "operationId" : "listUser",
+        "responses" : {
+          "default" : {
+            "description" : "Default response for GET /users"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "x-amazon-apigateway-integrations" : {
+      "unusedIntegration_ofpmbml" : {
+        "payloadFormatVersion" : "2.0",
+        "type" : "aws_proxy",
+        "httpMethod" : "POST",
+        "uri" : "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:780401591112:function:Nishant-gateway-handler/invocations",
+        "connectionType" : "INTERNET"
+      }
+    }
+  },
+  "x-amazon-apigateway-importexport-version" : "1.0"
+}
